@@ -24,7 +24,7 @@ def find_from_sublister(hostname, filename):
 	try:
 		
 	
-		subdomain = subprocess.check_output(['python', 'sublister/sublist3r.py', '-d',hostname, '-o', filename]) 
+		subdomain = subprocess.check_output(['python', 'sublist3r/sublist3r.py', '-d',hostname, '-o', filename]) 
 		
 		fopen = open(filename, 'r')
 		print '[+]Saving results to:- ', filename
