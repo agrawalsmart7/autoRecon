@@ -11,7 +11,7 @@ def drivers():
 		
 		file = os.getcwd()
 		location = file+'/'+'geckodriver.exe'
-		print location
+		
 		os.environ['DIR'] = location
 		CHROMEDRIVER_PATH = location
 
