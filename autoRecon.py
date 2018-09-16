@@ -54,7 +54,7 @@ def main (output):
 	# the below functions are for phase1 and phase2
 	
 	
-	runner.run(newurllist, hostname, filename)
+	runner.run(newurllist, hostname, filename, urls_interesting_files_open)
 	
 	htmlreport.htmlfile(output)
 	

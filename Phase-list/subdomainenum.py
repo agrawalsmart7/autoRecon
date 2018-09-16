@@ -133,7 +133,12 @@ def executing_subdomains(newurllist, hostname, filename):
 		list(pool.map(urlrequests,newurllist))
 	
 	
+<<<<<<< HEAD
 		
+=======
+
+	
+>>>>>>> 2150cd8c76320aca4899d17d2a732a1ad6f56890
 	print "\n\n[!]List of Urls's status Code is 200\n"
 	for x in urls_returning200:
 		
