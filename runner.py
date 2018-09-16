@@ -21,9 +21,9 @@ def run(arg1, arg2, arg3, urls_interesting_files_open):
 	anonymous_ftplogin.main()
 	fetching_from_wayback.main()
 	screenshot_capturer.main()
-	print      "----------------------------------------------------"
-	print '\n\n/[+][+][DONE]. Tryint to get some additional info:- /\n'
-	print     "----------------------------------------------------"
+	print "\n\n----------------------------------------------------"
+	print   '/[+][+][DONE]. Tryint to get some additional info:- /'
+	print   "----------------------------------------------------\n"
 	newurl = 'http://'+arg2
 	find_default_files.main(newurl,urls_interesting_files_open)
 	
