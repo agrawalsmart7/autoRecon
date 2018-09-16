@@ -36,59 +36,150 @@ def htmlfile(output):
 		
 		wrapper = """
 
+		<style>body {
+			background-color: #C0C0C0;
+		}
+		</style>
 		<!DOCTYPE html>
-		<html lang="en">
-		<head>
-		  <title>Bootstrap Example</title>
-		  <meta charset="utf-8">
-		  <meta name="viewport" content="width=device-width, initial-scale=1">
-		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		</head>
-		<body>
 
-		<div class="container-fluid">
-		  <h1>Hello World!</h1>
-		  <p>Resize the browser window to see the effect.</p>
-		  <p>The columns will automatically stack on top of each other when the screen is less than 768px wide.</p>
-		  <div class="row">
-			<div class="col-sm-4" style="background-color:lavender;">[!]List of 200 urls<br><br></div><br>
-			<div>%s</div>
-			<div class="col-sm-4" style="background-color:lavenderblush;">[!]OpenPorts of 200 urls<br><br>%s</div>
-			<div class="col-sm-4" style="background-color:lavenderblush;">[!]CMS/WebServer/Frameworks<br><br>%s</div>
-			
-		  </div>
-		   <div class="row">
-			<div class="col-sm-4" style="background-color:lavender;">[!]List of 400 urls<br><br>%s</div>
-			<div class="col-sm-4" style="background-color:lavenderblush;">[!]OpenPorts of 400 urls<br><br>%s</div>
-			<div class="col-sm-4" style="background-color:lavenderblush;">[!]CMS/WebServer/Frameworks<br><br>%s</div>
-			
-			
-			
-		  </div>
-		   <div class="row">
-			<div class="col-sm-4" style="background-color:lavender;">[!]List of 401 urls<br><br>%s</div>
-			<div class="col-sm-4" style="background-color:lavenderblush;">[!]OpenPorts of 401 urls<br><br>%s</div>
-			<div class="col-sm-4" style="background-color:lavenderblush;">[!]CMS/WebServer/Frameworks<br><br>%s</div>
-			
-		  </div>
-		   <div class="row">
-			<div class="col-sm-4" style="background-color:lavender;">[!]List of 403 urls<br><br>%s</div>
-			<div class="col-sm-4" style="background-color:lavenderblush;">[!]OpenPorts of 403 urls<br><br>%s</div>
-			<div class="col-sm-4" style="background-color:lavenderblush;">[!]CMS/WebServer/Frameworks<br><br>%s</div>
-			
-			
-		  </div>
-		   <div class="row">
-			<div class="col-sm-2" style="background-color:lavender;">[!]List of 404 urls<br><br>%s</div>
-			<div class="col-sm-4" style="background-color:lavenderblush;">[!]CnameEntries 404 urls <br><br>%s</div>
-			<div class="col-sm-3" style="background-color:lavender;">[!]OpenPorts of 404 urls<br><br>%s</div>
-			<div class="col-sm-3" style="background-color:lavenderblush;">[!]CMS/WebServer/Frameworks<br><br>%s</div>
-		  </div>
-		</div>
-			
+		<html>
+		<head>
+		<h1><center><u>HTML report.</u></center></h1>
+		</head>
+		<br><br>
+		<table width=\"100%%\" cellpadding = \"4\" border=\"0\">
+		<tbody>
+		<tr>
+		<th><u>[!]List of URL's
+		</u></th>
+		<th>
+		<u>[!] Open Ports on subdomains
+		</u></th>
+		<th>
+		<u>[!]Web servers list.
 		
+		</u></th>
+		</tr>
+		<tr>
+		<td width=\"33%%\">
+		<font size=\"3\" color=\"green\"><u color=\"green\" >[+] List of 200 status code subdomains</u></font>
+		</td>
+		<td width=\"33%%\">
+		<font size=\"3\" color=\"green\"><u color=\"green\" >[+] List of Open Ports.</u></font>
+		</td>
+		<td width=\"33%%\"><font color=\"green\"><u color=\"green\" >[+]Server/CMS-Versions</u></font>
+		</td>
+		
+		</tr>
+		<tr>
+		<td>
+		%s                   <!-- forstring = 1-->
+		</td>
+		<td>
+		%s		<!-- forstring = 2-->
+		</td>
+		<td>
+		%s		<!-- forstring = 15-->
+		</td>
+		
+		</tr>
+		<tr>
+		<td width=\"33%%\">
+		<font size=\"3\" color=\"red\"><u color=\"red\" >[-]List of 400 status code subdomains.</u></font>
+		</td>
+		<td width=\"33%%\">
+		<font size=\"3\" color=\"green\"><u color=\"green\" >[+] List of Open Ports.</u></font>
+		</td>
+		<td width=\"33%%\"><font color=\"green\"><u color=\"green\" >[+]Server/CMS-Versions</u></font>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		%s <!-- forstring = 3-->
+		</td>
+		<td>		
+		%s		<!-- forstring = 4-->
+		</td>
+		<td>
+		%s		<!-- forstring = 16-->
+		</td>
+		</tr>
+		<tr>
+		<td width=\"33%%\">
+		<font size=\"3\" color=\"red\"><u color=\"red\" >[-]List of 401 status code subdomains.</u></font>
+		</td>
+		<td width=\"33%%\">
+		<font size=\"3\" color=\"green\"><u color=\"green\" >[+] List of Open Ports.</u></font>
+		</td>
+		<td width=\"33%%\"><font color=\"green\"><u color=\"green\" >[+]Server/CMS-Versions</u></font>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		%s  <!-- forstring = 5-->
+		</td>
+		<td>		
+		%s		<!-- forstring = 6-->
+		</td>
+		<td>
+		%s		<!-- forstring = 17-->
+		</td>
+		</tr>
+		<tr>
+		<td width=\"33%%\">
+		<font size=\"3\" color=\"red\"><u color=\"red\" >[-]List of 403 status code subdomains</u></font>
+		</td>
+		<td width=\"33%%\">
+		<font size=\"3\" color=\"green\"><u color=\"green\" >[+] List of Open Ports.</u></font>
+		</td>
+		<td width=\"33%%\"><font color=\"green\"><u color=\"green\" >[+]Server/CMS-Versions</u></font>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		%s <!-- forstring = 7-->
+		</td>
+		<td>		
+		%s		<!-- forstring = 8-->
+		</td>
+		<td>
+		%s		<!-- forstring = 18-->
+		</td>
+		</tr>
+		</tbody>
+		  </table>
+		<table width=\"100%%\" cellpadding = \"3\" border=\"0\">
+		<tbody>
+		<tr>
+		<td>
+		<font size=\"3\" color=\"red\"><u color=\"red\" >[-]List of 404 status code subdomains.</u></font>
+		</td>
+		<td>
+		<font size=\"3\" color=\"green\"><u color=\"green\" >[+]Cname's of 404 status code subdomains.</u></font>
+		</td>
+		<td>
+		<font size=\"3\" color = \"green\"><u color=\"green\" >[+]List of Open Ports.</u></font>
+		</td>
+		<td>
+		<font size=\"3\" color = \"green\"><u color=\"green\" >[+]Server/CMS-Versions.</u></font>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		%s<!-- forstring = 9-->
+		</td>
+		<td>
+		%s<!-- forstring = 10-->
+		</td>
+		<td>
+		%s <!-- forstring = 11-->
+		</td>
+		<td>
+		%s		<!-- forstring = 19-->
+		</td>
+		</tr>
+		</tbody>
+		  </table>
 		<h2><center><u> URL's and Screenshots.</u></center></h2>
 		<table width=\"100%%\" cellpadding=\"2\">
 		
@@ -98,9 +189,7 @@ def htmlfile(output):
 		%s<!-- forstring = 14-->
 		
 		</table>
-		</body>
-		</html>
-		"""
+		</html>"""
 		
 		get_cwd = os.getcwd()
 		hrml_report = os.chdir('results')
