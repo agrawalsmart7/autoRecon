@@ -2,8 +2,8 @@
 
 autoRecon is a tool which have 7 Phases.
 
-Out-of-Phase:- It will try to find if the domain NS (name server) leaks some Zone transfer file or not.
-Out-of-Phase:- It will try to find the Virtual host on that domain. So to give out info about "How many web application running on single IP". Remember please check if that domain is in the scope or not.
+**Out-of-Phase**:- It will try to find if the domain NS (name server) leaks some Zone transfer file or not.
+<br>**Out-of-Phase**:- It will try to find the Virtual host on that domain. So to give out info about "How many web application   running on single IP". Remember please check if that domain is in the scope or not.
 
 
 **Phase 1**: It will find the sub-domains through the use of the sublist3r.
@@ -20,8 +20,8 @@ Out-of-Phase:- It will try to find the Virtual host on that domain. So to give o
 
 **Phase 7**: Now in the last phase it will find the URLs in the WayBack machine but whose domain status code is 401, 403. And will Capture screen-shots of way-back URLs.
 
-Out-of-Phase:- It will try to find default files for ex. phpinfo.php, htaccess.txt on each and every sub-domain
-Out-of-phase:- Now lastly it will give you the results in HTML file.
+**Out-of-Phase**:- It will try to find default files for ex. phpinfo.php, htaccess.txt on each and every sub-domain
+<br>**Out-of-phase**:- Now lastly it will give you the results in HTML file.
 
 
 # Usage: 
