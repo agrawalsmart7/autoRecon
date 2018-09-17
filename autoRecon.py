@@ -8,6 +8,7 @@ sys.path.insert(0, get_cwd+'/Phase-list/')
 import runner
 from List_of_index import *
 import htmlreport
+import main_domain_testing
 
 
 
@@ -25,20 +26,21 @@ output = options.result
 
 
 
-def logo():
+def logo(hostname):
 	outputt = """
 
 	                    __             ___ _                          	 
 	   ___ _   __  __  / /_  ____     / -- /  _ _    _ _   ___ _     _  _
-	  / __  / / / / / / __/ / __  \  /_ _ / / _ _/ /  _ /  / __  \  /  _   /
+	  / __  / / / / / / __/ / __  \  /_ _ / / _ _/ /  _ / / __  \  /  _   /
  	 / /_/ / / /_/ / / /_  / /__/ / / \    /      / /_   / /__/ / / /  / /
 	 \__,_/  \___ /  \__/  \ ___ / /   \   \ _ _  \ _ /  \ ___ / /_/  /_/
 	 
 	 # Code written by @agrawalsmart7
 	 
+	 
 	   
 	"""
-	print outputt
+	print outputt 
 
 def error():
 	error  = '\n Usage: autoRecon.py -t domain.com -f yourfilename.txt -o output.html'
@@ -46,18 +48,16 @@ def error():
 
 	
 def timew():
-	print "Total time taken:- ", time.time()-start, 'seconds'
+	print "\nTotal time taken:- ", time.time()-start, 'seconds'
 	
 
 def main (output):
 	
-	# the below functions are for phase1 and phase2
 	
 	
+	main_domain_testing.run(hostname)
 	runner.run(newurllist, hostname, filename, urls_interesting_files_open)
-	
-	htmlreport.htmlfile(output)
-	
+	htmlreport.htmlfile(output, hostname)
 	timew()
 	
 	
@@ -66,10 +66,8 @@ if __name__ == '__main__':
 	try:
 		
 		if hostname and filename and output :
-
-			logo()
+			logo(hostname)
 			main(output)
-			
 		else:
 			error()	
 			

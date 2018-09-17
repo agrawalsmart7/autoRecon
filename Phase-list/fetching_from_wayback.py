@@ -5,7 +5,7 @@ import threading
 import os
 import time
 
-urls_returning403.append('http://static.reverb.com')
+
 
 def printing_of_webarchieve():
 	print "\n...............................................................................................\n"
