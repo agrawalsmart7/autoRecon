@@ -33,7 +33,7 @@ autoRecon is a tool which have 7 Phases.
 
 -t is for "Target" address and should be in this **domainname.com** format
 <br>-f is for "Filename", which is required by this tool. And should be in **.txt** extension.
-<br>-o is for "Result out-put file"
+<br>-o is for "Result out-put HTML file"
 # Working Environment
 
 Perfectly tested in python 2.7 in Windows 10.
