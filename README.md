@@ -5,6 +5,7 @@ autoRecon is a tool which have 7 Phases.
 **Out-of-Phase**:- It will try to find if the domain NS (name server) leaks some Zone transfer file or not.
 <br>**Out-of-Phase**:- It will try to find the Virtual host on that domain. So to give out info about "How many web application   running on single IP". Remember please check if that domain is in the scope or not.
 
+**Now on Subdomains.**
 
 **Phase 1**: It will find the sub-domains through the use of the sublist3r.
 
