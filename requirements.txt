@@ -1,4 +1,3 @@
-os
 optparse
 requests
 re
@@ -10,4 +9,4 @@ threading
 ftplib
 Queue
 subprocess
-wad
+
