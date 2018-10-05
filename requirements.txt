@@ -1,13 +1,3 @@
-os
-optparse
-requests
-re
-dns.resolver
-concurrent.futures
-time
-socket
-threading
-ftplib
-Queue
-subprocess
-wad
+futures	
+bs4
+selenium
