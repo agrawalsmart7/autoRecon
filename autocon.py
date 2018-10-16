@@ -43,7 +43,7 @@ def logo(hostname):
 	print outputt 
 
 def error():
-	error  = '\n Usage: autoRecon.py -t domain.com -f yourfilename.txt -o output.html'
+	error  = '\n Usage: autocon.py -t domain.com -f yourfilename.txt -o output.html'
 	print error
 
 	
