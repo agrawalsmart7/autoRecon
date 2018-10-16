@@ -1,6 +1,6 @@
-# autoRecon
+# autocon
 
-autoRecon is a tool which have 7 Phases.
+autocon is a tool which have 7 Phases.
 
 **Out-of-Phase**:- It will try to find if the domain NS (name server) leaks some Zone transfer file or not.
 <br>**Out-of-Phase**:- It will try to find the Virtual host on that domain. So to give out info about "How many web application   running on single IP". Remember please check if that domain is in the scope or not.
@@ -28,7 +28,7 @@ autoRecon is a tool which have 7 Phases.
 # Usage: 
 
 `C:\>pip install requirements.txt`<br>
-`C:\>autoRecon.py -t domainname.com -f anyfilename.txt -o anyfilename.html`
+`C:\>autocon.py -t domainname.com -f anyfilename.txt -o anyfilename.html`
 
 **Note:** 
 
