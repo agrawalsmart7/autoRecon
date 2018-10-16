@@ -1,3 +1,4 @@
+requests
 futures	
 bs4
 selenium
