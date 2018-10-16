@@ -19,7 +19,7 @@ def drivers():
 		firefox_options .add_argument("-headless")  
 		driver = webdriver.Firefox(executable_path=CHROMEDRIVER_PATH, firefox_options = firefox_options ) 
 		
-		driver.set_page_load_timeout(5)
+		
 		
 		return driver
 	except Exception as e:
@@ -31,6 +31,7 @@ def drivers_func(x, waybackurls, driver):
 	
 	print "\t[+]" + x
 	try:
+		
 		driver.get(x)
 		
 		imgfilename  = x.split('/web/')[-1] 
@@ -56,11 +57,13 @@ def executing_functions():
 	
 	new_dir = os.chdir('screenshots')
 	for x in webarchive_urls401:
-		
+		driver.set_page_load_timeout(5)
 		drivers_func(x, waybackurls401, driver)
 	
 	for y in webarchive_urls403:
+		driver.set_page_load_timeout(5)
 		drivers_func(y, waybackurls403, driver)
+		
 	driver.close()		
 	os.chdir(get_cwd)
 def main():
