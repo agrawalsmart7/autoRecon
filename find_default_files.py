@@ -10,7 +10,7 @@ def searching_for_url(x, filename, urls_interesting_files):
 	try:
 	
 		newurl = x+'/'+filename
-
+		
 		request = requests.get(newurl)
 		if (request.status_code == 200):
 			
@@ -31,34 +31,23 @@ def exect(url, urls_interesting_files):
 			
 			'''searching_for_url(url, filename, urls_interesting_files)'''
 	for x in local_threads:
+	
 		thread_for_files.append(x)
 		
-	
-def urls_200(urls_interesting_files):
-	for x in urls_returning200:
-		exect(x, urls_interesting_files)
-		
-def urls_403(urls_interesting_files):
-	for x in urls_returning403:
-		exect(x, urls_interesting_files)	
-		
-def urls_404(urls_interesting_files):
-	for x in urls_returning404:
-		exect(x, urls_interesting_files)
-
 
 		
 def main(urls_interesting_files):
 
-	thread1 = threading.Thread(target=urls_200, args=(urls_interesting_files,))
-	thread2 = threading.Thread(target=urls_403, args=(urls_interesting_files,))
-	thread3 = threading.Thread(target=urls_404, args=(urls_interesting_files,))
-	
-	thread1.start()
-	thread2.start()
-	thread3.start()
-	
-	thread3.join()
+	for x in urls_returning200:
+		
+		exect(x, urls_interesting_files)
+		
+	for x in urls_returning403:
+		exect(x, urls_interesting_files)	
+		
+	for x in urls_returning404:
+		exect(x, urls_interesting_files)
+
 	
 	for x in thread_for_files:
 		x.start()
