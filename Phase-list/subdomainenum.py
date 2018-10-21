@@ -54,7 +54,7 @@ def find_from_sublister(hostname, filename):
 					
 		print "\n......................................................................................" 
 		print "\n\n                                                 [PHASE: 2]: Starts below                                                 \n\n"
-		print "[!!] Unavailable Subdomains\n"
+		print "[!] Unavailable Subdomains\n"
 		
 		return fopen.readlines()
 				

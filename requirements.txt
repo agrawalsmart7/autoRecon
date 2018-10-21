@@ -2,4 +2,6 @@ requests
 futures	
 bs4
 selenium
+colorama
+crayons
 

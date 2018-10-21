@@ -2,6 +2,7 @@ from List_of_index import *
 import dns_zone_testing
 import find_default_files
 import virtual_host_testing
+import csp_parser
 
 def run(hostname):
 	
@@ -23,3 +24,5 @@ def run(hostname):
 		
 	else:
 		print "  "+ " [+]Checking of Virtual hosting of target:- Found. (will save the result in output file)"
+		
+	csp_parser.main(hostname)	

@@ -8,6 +8,8 @@ def htmlfile(output, hostname):
 		url_for_dns_zone = '<br>'.join(str(s) for s in dns_zone_vul_domains)
 		url_for_virtualhost = '<br>'.join(str(x) for x in list_of_virtual_host)
 		
+		csp_urls = '<br>'.join(str(x) for x in jsonpurls)
+		
 		url_200_list = '<br>'.join(str(key) for key, value in getvalue200.iteritems())
 		open_ports_200 = '<br>'.join((str(getvalue200[key][0]).strip('[]')) for key, value in getvalue200.iteritems())
 		info_200_urls = '<br>'.join(((str(getvalue200[key][1]).translate(None, "[]''")) for key, value in getvalue200.iteritems()))
@@ -93,8 +95,11 @@ def htmlfile(output, hostname):
 			 <p class=\"div1\" size=\"4\"><center>Target:- %s</center></p></br></br>
 			 <br>
 			 <h3><u>Gathering Info for Target domain</u></h3><br><br>
-			 <p class=\"div1\"><font size=\"4\"><u>[+]Vulnerable Zone transfer for Target (If any):-</u> %s <font></p><br>
-			  <p class=\"div1\"><font size=\"4\"><u>[+]List of Virtual hosts (If any)</u></font></p>
+			 <p class=\"div1\"><font size=\"4\" color=\"green\"><u color=\"green\" >[+]Vulnerable Zone transfer for Target (If any):-</u></font></p><br>
+			 <p class=\"div1\"><font size=\"4\"> %s </font></p>
+			  <p class=\"div1\"><font size=\"4\" color=\"green\"><u color=\"green\" >[+]List of Virtual hosts (If any)</u></font></p>
+			   <p class=\"div1\"><font size=\"4\"> %s </font></p>
+			   <p class=\"div1\"><font size=\"4\" color=\"green\"><u color=\"green\" >[+]JsonWithPadding endpoints for CSP bypass.( If CSP set)</u></font></p>
 			   <p class=\"div1\"><font size=\"4\"> %s </font></p>
 		</head>
 		<body>
@@ -127,13 +132,13 @@ def htmlfile(output, hostname):
 		</tr>
 		<tr>
 		<td >
-		<div  class=\"div1\">%s </div>    <!-- forstring = 1-->
+		<div  class=\"div1\"><font size=\"4\">%s </font></div>    <!-- forstring = 1-->
 		</td>
 		<td>
-			<div  class=\"div1\">%s </div>	<!-- forstring = 2-->
+			<div  class=\"div1\"><font size=\"4\">%s </font></div>	<!-- forstring = 2-->
 		</td>
 		<td>
-			<div  class=\"div1\">%s </div>
+			<div  class=\"div1\"><font size=\"4\">%s </font></div>
 		</td>
 		
 		</tr>
@@ -149,13 +154,13 @@ def htmlfile(output, hostname):
 		</tr>
 		<tr>
 		<td>
-			<div  class=\"div1\">%s </div><!-- forstring = 3-->
+			<div  class=\"div1\"><font size=\"4\">%s </font></div><!-- forstring = 3-->
 		</td>
 		<td>		
-			<div  class=\"div1\">%s </div>
+			<div  class=\"div1\"><font size=\"4\">%s </font></div>
 		</td>
 		<td>
-			<div  class=\"div1\">%s </div>	<!-- forstring = 16-->
+			<div  class=\"div1\"><font size=\"4\">%s </font></div>	<!-- forstring = 16-->
 		</td>
 		</tr>
 		<tr>
@@ -170,13 +175,13 @@ def htmlfile(output, hostname):
 		</tr>
 		<tr>
 		<td>
-			<div  class=\"div1\">%s </div><!-- forstring = 5-->
+			<div  class=\"div1\"><font size=\"4\">%s </font></div><!-- forstring = 5-->
 		</td>
 		<td>		
-				<div  class=\"div1\">%s </div> 	<!-- forstring = 6-->
+				<div  class=\"div1\"><font size=\"4\">%s </font></div> 	<!-- forstring = 6-->
 		</td>
 		<td>
-				<div  class=\"div1\">%s </div> <!-- forstring = 17-->
+				<div  class=\"div1\"><font size=\"4\">%s </font></div> <!-- forstring = 17-->
 		</td>
 		</tr>
 		<tr>
@@ -192,13 +197,13 @@ def htmlfile(output, hostname):
 		</tr>
 		<tr>
 		<td>
-			<div  class=\"div1\">%s </div> <!-- forstring = 7-->
+			<div  class=\"div1\"><font size=\"4\">%s </font></div> <!-- forstring = 7-->
 		</td>
 		<td>		
-			<div  class=\"div1\">%s </div>	<!-- forstring = 8-->
+			<div  class=\"div1\"><font size=\"4\">%s </font></div><!-- forstring = 8-->
 		</td>
 		<td>
-				<div  class=\"div1\">%s </div>	<!-- forstring = 18-->
+				<div  class=\"div1\"><font size=\"4\">%s </font></div>	<!-- forstring = 18-->
 		</td>
 		</tr>
 		</tbody>
@@ -222,16 +227,16 @@ def htmlfile(output, hostname):
 		<tr>
 		<td>
 		
-		%s<!-- forstring = 9-->
+		<font size=\"4\">%s </font><!-- forstring = 9-->
 		</td>
 		<td>
-		%s<!-- forstring = 10-->
+		<font size=\"4\">%s </font><!-- forstring = 10-->
 		</td>
 		<td>
-		 %s<!-- forstring = 11-->
+		 <font size=\"4\">%s </font><!-- forstring = 11-->
 		</td>
 		<td>
-			%s	<!-- forstring = 19-->
+			<font size=\"4\">%s </font>	<!-- forstring = 19-->
 		</td>
 		</tr>
 		</tbody>
@@ -244,8 +249,8 @@ def htmlfile(output, hostname):
 		<br><br><th> <font size=\"4\" class=\"div1\"><u>Web-Screenshots.</u></font><br><br></th>
 		 
 		<tr>
-		<td ><div class=\"div1\">%s </div> </td>
-		<td ><div  class=\"div1\">%s </div> </td>
+		<td ><div  class=\"div1\"><font size=\"4\">%s </font></div> </td>
+		<td ><div  class=\"div1\"><font size=\"4\">%s </font></div> </td>
 		</tr>	<!-- forstring = 13-->
 		<!-- forstring = 14-->
 		
@@ -254,7 +259,7 @@ def htmlfile(output, hostname):
 		<div class=\"new_div2\">
 		<br><br><h2><center><u>Additional Info</u></center></h2>
 		<p><font size=\"4\" class=\"div1\" ><u><b>List of the interesting URL's. (if any) </b></u></font></p>
-		<div class=\"div1\">%s</div>
+		<div  class=\"div1\"><font size=\"4\">%s </font></div>
 		</div>
 		</body>
 		</html>"""
@@ -263,7 +268,7 @@ def htmlfile(output, hostname):
 		hrml_report = os.chdir('results')
 		
 		file = open(output, 'w')
-		file.write(wrapper % (hostname, url_for_dns_zone, url_for_virtualhost , url_200_list, open_ports_200, info_200_urls, url_400_list , open_ports_400,info_400_urls, url_401list ,open_ports_401 ,info_401_urls, url_403list,open_ports_403 ,info_403_urls, url_404list , url_404_cname, open_ports_404, info_404_urls ,urls_from_wayback401 ,urls_from_wayback403, url_default_file))
+		file.write(wrapper % (hostname, url_for_dns_zone, url_for_virtualhost , csp_urls, url_200_list, open_ports_200, info_200_urls, url_400_list , open_ports_400,info_400_urls, url_401list ,open_ports_401 ,info_401_urls, url_403list,open_ports_403 ,info_403_urls, url_404list , url_404_cname, open_ports_404, info_404_urls ,urls_from_wayback401 ,urls_from_wayback403, url_default_file))
 		
 		file.close()
 		os.chdir(get_cwd)

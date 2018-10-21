@@ -17,6 +17,8 @@ urls_returning400 = []
 urls_returning401 = []
 urls_returning403 = []
 urls_returning404 = []
+
+
 dict200 = OrderedDict()
 
 dict400 = OrderedDict()
@@ -53,4 +55,9 @@ urls_interesting_files_open=[]
 dns_zone_vul_domains = []
 urls_interesting_files_open_for_domain= []
 list_of_virtual_host = []
-
+jsonpurls = []
+default = {}
+script = {}
+frame = {}
+img = {}
+frameancestors = {}
