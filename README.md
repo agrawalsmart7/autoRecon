@@ -1,9 +1,14 @@
-# autocon
+# Autocon
 
-autocon is a tool which have 7 Phases.
+Autocon is a automation tool which works on Phases which automates the manual process and give results in HTML file. 
 
-**Out-of-Phase**:- It will try to find if the domain NS (name server) leaks some Zone transfer file or not.
-<br>**Out-of-Phase**:- It will try to find the Virtual host on that domain. So to give out info about "How many web application   running on single IP". Remember please check if that domain is in the scope or not.
+** Main domain **
+
+**1.** It will try to find if the domain NS (name server) leaks some Zone transfer file or not.
+<br>**2.** It will try to find the Virtual host on that domain. So to give out info about "How many web application   running on single IP". Remember please check if that domain is in scope or not.
+<br>**3.** It will try to parse the CSP header (if set). It will store the domains which are set on CS policy. 
+<br>`For ex. CSP:- default-src *.test.com www.test1.com test2.com`
+<br>then it will parse it and store these domains like `test.com, www.test1.com, test2.com` then it will try to find the JSONp endpoints on those domains through the use of `google.com, ask.com`. (Intentionally for bypassing CSP).
 
 **Now on Subdomains.**
 
@@ -21,8 +26,8 @@ autocon is a tool which have 7 Phases.
 
 **Phase 7**: Now in the last phase it will find the URLs in the WayBack machine but whose domain status code is 401, 403. And will Capture screen-shots of way-back URLs.
 
-**Out-of-Phase**:- It will try to find default files for ex. phpinfo.php, htaccess.txt on each and every sub-domain
-<br>**Out-of-phase**:- Now lastly it will give you the results in HTML file.
+**8**:- It will try to find default files for ex. phpinfo.php, htaccess.txt on each and every sub-domain. 
+<br>**9**:- Now lastly it will give you the results in HTML file.
 
 
 # Usage: 
