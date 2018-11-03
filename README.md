@@ -9,7 +9,7 @@ Autocon is a automation tool which works on Phases which automates the manual pr
 <br>**3.** It will try to parse the CSP header (if set). It will store the domains which are set on CS policy. 
 <br>`For ex. CSP:- default-src *.test.com www.test1.com test2.com`
 <br>then it will parse it and store these domains like `test.com, www.test1.com, test2.com` then it will try to find the JSONp endpoints on those domains through the use of `google.com, ask.com`. (Intentionally for bypassing CSP).
-
+<br>**4** Then it will try to crawl the target and try to find out the vulnerble URL for xss. (If any). Remember it will take one round for crawl. 
 **Now on Subdomains.**
 
 **Phase 1**: It will find the sub-domains through the use of the sublist3r.
