@@ -3,6 +3,11 @@ import dns_zone_testing
 import find_default_files
 import virtual_host_testing
 import csp_parser
+import crayons
+import colorama
+import crawler
+
+colorama.init()
 
 def run(hostname):
 	
@@ -26,3 +31,7 @@ def run(hostname):
 		print "  "+ " [+]Checking of Virtual hosting of target:- Found. (will save the result in output file)"
 		
 	csp_parser.main(hostname)	
+	
+	print '\n', crayons.red('[!]'),  crayons.green('Spidering Target to see if any parameter is Vulnerable to XSS. (will print if any)'), '\n'
+	crawler.main(hostname)
+	

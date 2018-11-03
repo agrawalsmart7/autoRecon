@@ -57,11 +57,11 @@ def executing_functions():
 	
 	new_dir = os.chdir('screenshots')
 	for x in webarchive_urls401:
-		driver.set_page_load_timeout(5)
+		driver.set_page_load_timeout(20)
 		drivers_func(x, waybackurls401, driver)
 	
 	for y in webarchive_urls403:
-		driver.set_page_load_timeout(5)
+		driver.set_page_load_timeout(20)
 		drivers_func(y, waybackurls403, driver)
 		
 	driver.close()		
