@@ -30,7 +30,7 @@ def windows_func():
 def get_geckodriver(version):
 	try:
 	
-		os.system('wget https://github.com/mozilla/geckodriver/releases/download/%s/geckodriver-%s-linux64.tar.gz ; tar xvzf geckodriver-%s-linux64.tar.gz ; chmod +x geckodriver ;')% (version, version, version)
+		os.system("wget https://github.com/mozilla/geckodriver/releases/download/"+str(version)+"/geckodriver-"+str(version)+"-linux64.tar.gz ; tar xvzf geckodriver-"+str(version)+"-linux64.tar.gz ; chmod +x geckodriver ;") 
 	
 	except OSError as e:
 		print e		
@@ -104,11 +104,29 @@ def check_os():
 		driver = windows_func()
 		executing_functions(driver)
 		
-	elif sys.platform == 'linux64':
+	elif sys.platform == 'linux2':
+		try:
+			
+		
+			driver = linux_func2()
+			executing_functions(driver)
+		except:
+			check_selenium_version()
+			driver = linux_func2()
+			executing_functions(driver)
 	
-		check_selenium_version()
-		driver = linux_func2()
-		executing_functions(driver)	
 def main():
-	check_os()
+	
+	urls_check = [webarchive_urls401, webarchive_urls403]
+	
+	for x in urls_check:
+		
+		for y in x:
+			print y
+			if y == "":
+				None
+			else:
+				check_os()
+
+	
 
