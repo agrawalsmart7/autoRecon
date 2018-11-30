@@ -33,5 +33,5 @@ def run(hostname):
 	csp_parser.main(hostname)	
 	
 	print '\n', crayons.red('[!]'),  crayons.green('Spidering Target to see if any parameter is Vulnerable to XSS. (will print if any)'), '\n'
-	#crawler.main(hostname)
+	crawler.main(hostname)
 	
