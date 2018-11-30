@@ -97,7 +97,6 @@ def executing_functions(driver):
 	
 def check_os():
 
-	print os.getcwd()
 	
 	if sys.platform == 'win32':
 	
@@ -121,12 +120,11 @@ def main():
 	
 	for x in urls_check:
 		
-		for y in x:
-			print y
-			if y == "":
-				None
-			else:
-				check_os()
+		if not x:
+			None
+		else:
+			
+			check_os()
 
 	
 
