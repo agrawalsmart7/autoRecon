@@ -42,9 +42,8 @@ wadresults2 = OrderedDict()
 threads = []
 webarchive_urls401 = []
 webarchive_urls403 = []
-
 threadsss = []
-
+webarchive_urls401.append('http://google.com')
 waybackurls401 = {}
 waybackurls403 = {}
 listofgetvalue = []
