@@ -43,7 +43,7 @@ Autocon is a automation tool which works on Phases which automates the manual pr
 <br>-o is for "Result out-put HTML file"
 # Working Environment
 
-Perfectly tested in python 2.7 in Windows 10.
+Windows, Linux
 
 # Questions I used to asked myself.
 
