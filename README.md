@@ -2,7 +2,7 @@
 
 Autocon is a automation tool which works on Phases which automates the manual process and give results in HTML file. 
 
-** Main domain **
+**Main domain**
 
 **1.** It will try to find if the domain NS (name server) leaks some Zone transfer file or not.
 <br>**2.** It will try to find the Virtual host on that domain. So to give out info about "How many web application   running on single IP". Remember please check if that domain is in scope or not.
@@ -27,8 +27,8 @@ Autocon is a automation tool which works on Phases which automates the manual pr
 
 **Phase 7**: Now in the last phase it will find the URLs in the WayBack machine but whose domain status code is 401, 403. And will Capture screen-shots of way-back URLs.
 
-**8**:- It will try to find default files for ex. phpinfo.php, htaccess.txt on each and every sub-domain. 
-<br>**9**:- Now lastly it will give you the results in HTML file.
+**Phase 8**:- It will try to find default files for ex. phpinfo.php, htaccess.txt on each and every sub-domain. 
+<br>**Phase 9**:- Now lastly it will give you the results in HTML file.
 
 
 # Usage: 
