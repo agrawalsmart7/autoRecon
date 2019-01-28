@@ -60,7 +60,7 @@ I use it because It covers mostly all site which we use to reveal the sub-domain
 
 <h2> What is the use of Phase-4 (nmap-scanning)</h2>
 
-Off-course it will find the nmap ports of each sub domains. So if someone finds that there is a port open named FTP, from the bunch of many sub-domains then it has the high probability that it allows anonymously login, and may be some weak passwords as company may not aware about it because of many subdomains. So it alerts you.
+Off-course it will find the nmap ports of each sub domains. So if someone finds that there is a port open named FTP, from the bunch of many sub-domains then it has the high probability that it allows anonymously login. So it alerts you.
 
 <h2> How Screenshots capture?</h2>
 
