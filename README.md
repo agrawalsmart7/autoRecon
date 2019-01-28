@@ -1,6 +1,6 @@
-# Autocon
+# autoRecon
 
-Autocon is a automation tool which works on Phases which automates the manual process and give results in HTML file. 
+autoRecon is a automation tool which works on Phases which automates the manual process and give results in HTML file. 
 
 **Main domain**
 
@@ -34,7 +34,7 @@ Autocon is a automation tool which works on Phases which automates the manual pr
 # Usage: 
 
 `C:\>pip install requirements.txt`<br>
-`C:\>autocon.py -t domainname.com -f anyfilename.txt -o anyfilename.html`
+`C:\>autoRecon.py -t domainname.com -f <anyfilename.txt> -o <anyfilename.html>`
 
 **Note:** 
 
