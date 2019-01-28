@@ -2,7 +2,10 @@
 
 autoRecon is a automation tool which works on Phases which automates the manual process and give results in HTML file. 
 
-**Main domain**
+# Features
+
+
+**--On the Main domain**
 
 **1.** It will try to find if the domain NS (name server) leaks some Zone transfer file or not.
 <br>**2.** It will try to find the Virtual host on that domain. So to give out info about "How many web application   running on single IP". Remember please check if that domain is in scope or not.
@@ -11,7 +14,7 @@ autoRecon is a automation tool which works on Phases which automates the manual 
 <br>then it will parse it and store these domains like `test.com, www.test1.com, test2.com` then it will try to find the JSONp endpoints on those domains through the use of `google.com, ask.com`. (Intentionally for bypassing CSP).
 <br>**4** Then it will try to crawl the target and try to find out the vulnerble URL for xss. (If any). Remember it will take one round for crawl. 
 
-**Now on Subdomains.**
+**--Now on Subdomains.**
 
 **Phase 1**: It will find the sub-domains through the use of the sublist3r.
 
