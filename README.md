@@ -59,6 +59,10 @@ I use it because It covers mostly all site which we use to reveal the sub-domain
 
 Off-course it will find the nmap ports of each sub domains. So if someone finds that there is a port open named FTP, from the bunch of many sub-domains then it has the high probability that it allows anonymously login, and may be some weak passwords as company may not aware about it because of many subdomains. So it alerts you.
 
+<h2> How Screenshots capture?</h2>
+
+This phase uses Selenium, geckodriver for screenshots. Note:- You may see unusal data in the first run in **Linux** because it makes geckodriver in binary form.
+
 # Feedback
 
 I am extremely waiting for your feedback about this tool. 
