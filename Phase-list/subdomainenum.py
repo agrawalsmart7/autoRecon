@@ -95,23 +95,23 @@ def urlrequests(ur):
 		req = requests.get(ur)
 		if req.status_code == responsecode[0]:
 			urls_returning200.append(ur)
-			json_dict[ur] = [{'Domain':ur, 'statuscode' : req.status_code}]
+			json_dict[ur] = [{'statuscode' : req.status_code}]
 			
 		elif req.status_code == responsecode[1]:
 			urls_returning400.append(ur)
-			json_dict[ur] = [{'Domain':ur, 'statuscode' : req.status_code}]
+			json_dict[ur] = [{'statuscode' : req.status_code}]
 			
 		elif req.status_code == responsecode[2]:
 			urls_returning401.append(ur)	
-			json_dict[ur] = [{'Domain':ur, 'statuscode' : req.status_code}]
+			json_dict[ur] = [{'statuscode' : req.status_code}]
 			
 		elif req.status_code == responsecode[3]:
 			urls_returning403.append(ur)
-			json_dict[ur] = [{'Domain':ur, 'statuscode' : req.status_code}]
+			json_dict[ur] = [{ 'statuscode' : req.status_code}]
 			
 		elif req.status_code == responsecode[4]:
 			urls_returning404.append(ur)
-			json_dict[ur] = [{'Domain':ur, 'statuscode' : req.status_code}]	
+			json_dict[ur] = [{'statuscode' : req.status_code}]	
 			
 		httpurlstates(ur, req)
 		
