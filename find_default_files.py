@@ -2,8 +2,9 @@ import requests
 from List_of_index import *
 import threading
 import time
+import json_output
 
-
+localdict = {}
 thread_for_files = []
 
 def searching_for_url(x, filename, urls_interesting_files):
@@ -16,6 +17,8 @@ def searching_for_url(x, filename, urls_interesting_files):
 		if (request.status_code == 200):
 			
 			urls_interesting_files.append(newurl)
+			localdict.setdefault(x, [])
+			localdict[x].append(newurl)
 	except Exception as e:
 		print e, ' on this domain ', x
 
@@ -77,3 +80,8 @@ def main(urls_interesting_files):
 		
 	for x in thread_for_files:
 		x.join()
+	
+	
+	json_output.json_output('interestedurls', localdict)
+	
+	

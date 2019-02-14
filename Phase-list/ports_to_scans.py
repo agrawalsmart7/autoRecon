@@ -11,9 +11,8 @@ def formate(newurl1, schemess, connCheck):
 	th6 = threading.Thread(target=connCheck,  args= (newurl, schemess,8443, ''))
 	th7 = threading.Thread(target=connCheck,  args= (newurl, schemess,3306, ''))
 	th8 = threading.Thread(target=connCheck,  args= (newurl, schemess,445, ''))
-	print "\n","----------------------" 
-	print " Host:- ", newurl1,
-	print "----------------------", "\n"
+	
+	print "\n ----------------------", "\n"
 	print "\tList of open ports:-"
 	
 	th1.start()

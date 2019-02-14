@@ -4,8 +4,9 @@ import json
 import threading
 import os
 import time
+import json_output
 
-
+localdict = {}
 
 def printing_of_webarchieve():
 	print "\n...............................................................................................\n"
@@ -16,6 +17,7 @@ def printing_of_webarchieve():
 def archiveweb(domain, year):
 		
 	url = "https://web.archive.org/__wb/calendarcaptures?url={0}&selected_year={1}" .format(domain, year)
+
 	try:
 		
 		req = requests.get(url)
@@ -27,6 +29,9 @@ def archiveweb(domain, year):
 						for url_date in z['ts']:
 							domain2 = domain.replace('http://', '')
 							urls = "https://web.archive.org/web/{0}/{1}" .format(url_date, domain2)
+							
+							localdict.setdefault(domain, [])
+							localdict[domain].append(urls)
 							
 							if domain in urls_returning401:
 								
@@ -57,7 +62,7 @@ def executing_wayback():
 		
 		
 	for x in urls_returning403:
-		
+		print x
 		way_back_starting(yearlist,x)
 	
 	
@@ -72,3 +77,6 @@ def executing_wayback():
 def main():
 	printing_of_webarchieve()
 	executing_wayback()
+	
+
+	json_output.json_output('waybackurls', localdict)

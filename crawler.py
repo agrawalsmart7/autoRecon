@@ -13,7 +13,7 @@ colorama.init()
 
 urls = []
 url_list = []
-query_wale_urls = []
+query_urls = []
 urls_for_xss = []
 vulnerable = []
 strips = []
@@ -35,7 +35,7 @@ def crawler(domain, bs):
 					if parse.query == "":
 						url_list.append(x)
 					else:
-						query_wale_urls.append(x)
+						query_urls.append(x)
 					
 				
 		if re.match(r'^/', str(x)):
@@ -45,7 +45,7 @@ def crawler(domain, bs):
 			if parse.query == "":
 				url_list.append('http://'+domain+x)
 			else:
-				query_wale_urls.append('http://'+domain+x)
+				query_urls.append('http://'+domain+x)
 			
 
 
@@ -87,7 +87,7 @@ def executor():
 
 
 	with ThreadPoolExecutor(max_workers=5) as pool:
-		list(pool.map(url_parser, query_wale_urls))
+		list(pool.map(url_parser, query_urls))
 		
 
 

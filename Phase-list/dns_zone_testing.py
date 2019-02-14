@@ -13,8 +13,15 @@ def exce(domain):
 		for server in answers:
 			
 			ns.append(server.target)
-	except Exception as e:
-		pass
+	except dns.resolver.NoNameservers:
+		if debug:
+			print domain+' has no servers'
+	except dns.resolver.NoAnswer:
+		if debug:
+			print host+' no Answer'
+			
+	except Exception, e:
+		print e
 
 def main(hostname):
 	try:
@@ -29,7 +36,8 @@ def main(hostname):
 			names.sort()
 			for n in names:
 				if 'SOA' in z[n].to_text(n):
-					dns_zone_vul_domains.append(x)
+					dns_zone_vul_domains.append(x) #output this into output file.
+					
 			
 	except Exception as e:
 		pass

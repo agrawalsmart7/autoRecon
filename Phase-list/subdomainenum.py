@@ -8,11 +8,10 @@ from collections import OrderedDict
 import requests
 import cname_finder
 from List_of_index import *
-
+import json_output
 
 
 headers = ['X-powered', 'X-generator', 'server','X-powered-by']
-
 
 
 
@@ -28,33 +27,26 @@ def find_from_sublister(hostname, filename):
 		
 		fopen = open(new_filename, 'r')
 		print '[+]Saving results to:- ', new_filename
-		print '[+]List of subdomain found \n'
+		for x in subdomain.split('\n'):
+			if "[-] Total Unique Subdomains Found" in x:
+				print x
+		
+		
 		for x in subdomain.split('\n'):
 			
-			if '|' in x:
-				None
-			elif '__' in x:
-				None
-					
-			elif '#' in x:
+			if '|' or '__' or '#' in x:
 				None
 			else:
-				if 	'[-]' in x:
+				if '[!]' or '[~]' or ' ':
+				
 					None
-				elif '[!]' in x:
-					None
-				elif '[~]' in x:
-					None
-				elif ' ' in x:
-					None
+				
 				else:
-					
-					
 					print x
 					
 		print "\n......................................................................................" 
 		print "\n\n                                                 [PHASE: 2]: Starts below                                                 \n\n"
-		print "[!] Unavailable Subdomains\n"
+		print "[!] Removing Unavailable Subdomains\n"
 		
 		return fopen.readlines()
 				
@@ -69,6 +61,7 @@ def find_from_sublister(hostname, filename):
 def httpurlstates(y, req):	
 	try:
 		
+		
 		wadresults.setdefault(y, [])
 	
 		parse = BeautifulSoup(req.content, 'html.parser', parse_only=SoupStrainer('meta'))
@@ -77,19 +70,19 @@ def httpurlstates(y, req):
 			if link.has_attr('name'):
 				if 'generator' in link['name']:
 					wadresults[y].append(link['content'])
+					
 				else:
 					None
 					
 		for x in headers:
 			if x in req.headers:
 				value = req.headers.get(x)
-				
 				wadresults[y].append(value)
 				
 			else:
 				wadresults[y].append('')
-				
-
+			
+		
 		
 
 	except Exception as e:
@@ -102,22 +95,28 @@ def urlrequests(ur):
 		req = requests.get(ur)
 		if req.status_code == responsecode[0]:
 			urls_returning200.append(ur)
+			json_dict[ur] = [{'Domain':ur, 'statuscode' : req.status_code}]
 			
 		elif req.status_code == responsecode[1]:
 			urls_returning400.append(ur)
+			json_dict[ur] = [{'Domain':ur, 'statuscode' : req.status_code}]
 			
 		elif req.status_code == responsecode[2]:
 			urls_returning401.append(ur)	
+			json_dict[ur] = [{'Domain':ur, 'statuscode' : req.status_code}]
 			
 		elif req.status_code == responsecode[3]:
 			urls_returning403.append(ur)
+			json_dict[ur] = [{'Domain':ur, 'statuscode' : req.status_code}]
 			
 		elif req.status_code == responsecode[4]:
 			urls_returning404.append(ur)
+			json_dict[ur] = [{'Domain':ur, 'statuscode' : req.status_code}]	
+			
 		httpurlstates(ur, req)
+		
 	except requests.exceptions.RequestException as e:
-		print ur
-	
+		pass
 
 
 
@@ -128,8 +127,9 @@ def executing_subdomains(newurllist, hostname, filename):
 		newurl = "http://" + url
 		
 		newurllist.append(newurl)
-		
+	
 	with ThreadPoolExecutor(max_workers=20) as pool:
+		
 		list(pool.map(urlrequests,newurllist))
 	
 	
@@ -163,8 +163,9 @@ def executing_subdomains(newurllist, hostname, filename):
 	for x in urls_returning404:
 		
 		print "\t"+ x
-			
 
+	json_output.json_output('server', wadresults)
+	
 	cname_finder.printingofcnames()
 	cname_finder.executingcnames(urls_returning404)
 	

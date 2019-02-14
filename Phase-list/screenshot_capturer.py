@@ -6,7 +6,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import TimeoutException
 import sys
 from sys import platform
-
+import json_output
 
 def windows_func():
 	try:
@@ -49,7 +49,7 @@ def linux_func2():
 
 	file = os.getcwd()
 	location = file+'/'+'geckodriver'
-	firefox_options = Options()  
+	firefox_options = Options() 
 	firefox_options.add_argument("-headless")  
 	driver = webdriver.Firefox(executable_path=location, firefox_options = firefox_options ) 
 	return driver
@@ -70,9 +70,8 @@ def drivers_func(x, waybackurls, driver):
 		driver.save_screenshot(newfile)
 		newloc = os.getcwd()+'/{0}'.format(newfile)
 		
-		
 		value = "<td><img src= file:///"+newloc + " width='20%' height= '25%'></td>".format(newfile)
-		key = "<tr><td width=\"50%\">{0}</td><td width=\"50%\"><img src= file:///{1} width='30%' height= '20%'><br><a href=\"{2}\">URL</a></td></tr>".format(x,newloc ,x)
+		key = "<tr><td width=\"50%\">{0}</td><td width=\"50%\"><img src= file:///{1} width='30%' height= '20%'><br><a href=\"{2}\">URL</a><br></td></tr>".format(x,newloc ,x)
 		
 		
 		waybackurls[key] = value
@@ -105,8 +104,6 @@ def check_os():
 		
 	elif sys.platform == 'linux2':
 		try:
-			
-		
 			driver = linux_func2()
 			executing_functions(driver)
 		except:
@@ -127,4 +124,5 @@ def main():
 			check_os()
 
 	
-
+	
+	

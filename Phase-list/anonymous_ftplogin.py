@@ -1,7 +1,7 @@
 import ftplib
 from ftplib import FTP
 from List_of_index import *
-
+import json_output
 
 
 def printing_of_ftp_login():
@@ -21,7 +21,8 @@ def ftp_login_check(x):
 			print "\t Host : "+ str(x) + "\n"
 			print "\t [+]Vulnerable FTP allows anonymous login. \n"
 			value = "[+]Vulnerable FTP allows anonymous login. "
-			ftpanonymous[x] = value
+			
+			ftpanonymous[x] = 'FTP Vulnerable'
 	
 	except ftplib.all_errors as e:
 		print "Host : "+ str(x)
@@ -36,3 +37,4 @@ def executing_ftp_login():
 def main():
 	printing_of_ftp_login()
 	executing_ftp_login()
+	json_output.json_output('ftp_anonymous', ftpanonymous)

@@ -9,6 +9,7 @@ import runner
 from List_of_index import *
 import htmlreport
 import main_domain_testing
+import json
 
 
 
@@ -28,16 +29,18 @@ output = options.result
 
 def logo(hostname):
 	outputt = """
+	
 
-	                    __                                      	 
-	   ___ _   __  __  / /_  ____     _ _  _ _      _ _   ___ _     _  _
-	  / __  / / / / / / __/ / __  \  /  / |    |  /  _ / / __  \  /  _   /
- 	 / /_/ / / /_/ / / /_  / /__/ / /--	  | - -  / /_   / /__/ / / /  / /
-	 \__,_/  \___ /  \__/  \ ___ / /  \	  |_  _  \ _ /  \ ___ / /_/  /_/
+	                    __             _ _ _                          	 
+	   ___ _   __  __  / /_  ____    (      )    _ _ _     _ _   ___ _     _  _
+	  / __  / / / / / / __/ / __  \  |  __ /   /    _ /  /  _ / / __  \  /  _   /
+ 	 / /_/ / / /_/ / / /_  / /__/ /  | | \ \  / / ( _/  / /_   / /__/ / / /  / /
+	 \__,_/  \___ /  \__/  \ ___ /   |_|  \_\ \ -_ _    \ _ /  \ ___ / /_/  /_/
 	 
 	 # Code written by @agrawalsmart7
 	 
 	 
+	   
 	   
 	"""
 	print outputt 
@@ -58,6 +61,8 @@ def main (output):
 	main_domain_testing.run(hostname)
 	runner.run(newurllist, hostname, filename, urls_interesting_files_open)
 	htmlreport.htmlfile(output, hostname)
+	
+	
 	timew()
 	
 	

@@ -2,6 +2,7 @@ import dns.resolver
 from dns.resolver import NXDOMAIN
 from collections import OrderedDict
 from List_of_index import *
+import json_output
 
 def printingofcnames():
 	print "\n...............................................................................................\n"	
@@ -27,9 +28,9 @@ def cnames(new_url, schemes):
 			
 			rdata = str(rdata)
 			rdata = rdata.translate(None, '[]<>')
-			dictcname.setdefault(key, [])
+			dictcname[key]=rdata
+			
 	
-			dictcname[key].append(rdata)
 			
 			
 		
@@ -55,3 +56,5 @@ def executingcnames(urls_returning404):
 			schemes = 'http://'
 			new_url = y.replace("http://", "")
 			cnames(new_url, schemes)
+			
+	json_output.json_output('cname', dictcname)

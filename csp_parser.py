@@ -13,18 +13,8 @@ from List_of_index import *
 colorama.init()
 
 
-def headers():
-	UA = {'User Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0',
-		'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-		'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
-		'Accept-Encoding': 'none',
-		'Accept-Language': 'en-US,en;q=0.8',
-		'Connection': 'keep-alive'}	
-		
-	return UA	
-
 def jsonp_finder_ask(domain):
-	ua = headers()
+	
 	
 	dork = 'site:'+domain+' inurl:JSONP'
 	url = 'https://www.ask.com/web?o=0&l=dir&qo=serpSearchTopBox&q=%s' %dork
@@ -46,7 +36,7 @@ def jsonp_finder_ask(domain):
 				jsonpurls.append(x.text)
 	
 def jsonP_finder_google(domain):
-	ua = headers()
+
 	dork = 'site:'+domain+' inurl:JSONP'
 	url = 'https://www.google.co.in/search?filter=0&num=100&q=%s&start='%dork
 	
@@ -70,20 +60,21 @@ def parsing_csp(xx, value):
 	string3 = re.findall(r'\w+\.+\w+\.+\w+', value)
 	
 	for y in string:
+		print y
 		if y in value:
 			
 			print "\t", (crayons.green(xx)) , " : " , (crayons.green('Self'))
 			
 	
 	for x in string2:
-		
+		print x
 		if x in value:
 			
 			
 			print "\t",  (crayons.green(xx)), " : " , (crayons.green(x))
 			for_jsonp_finder.append(x)
 	for x in string3:
-		
+		print x
 		if x in value:
 			for_jsonp_finder.append(x)
 			print "\t",  (crayons.green(xx)), " : " , (crayons.green(x))		
@@ -93,10 +84,10 @@ def parsing_csp(xx, value):
 
 def check_cspheader(domain):
 	
-	url = 'http://'+domain
-	
+	url = 'http://'+domain+'/test.php'
+	print url
 	req = requests.get(url)
-	csp_directives = ['default-src', 'script-src' ,'img-src', 'frame-ancestors', 'frame-src']
+	csp_directives = ['default-src', 'script-src','img-src', 'frame-ancestors', 'frame-src']
 	
 	if 'Content-Security-Policy' in req.headers:
 	
@@ -107,7 +98,7 @@ def check_cspheader(domain):
 
 		value = header_value.partition(';')
 		print '\n\t CSP-Directive :  Value \n'
-		
+		print value[0]
 		if value[0]:
 			
 			for x in csp_directives:
@@ -173,3 +164,4 @@ def main(domain):
 	check_cspheader(domain)
 	json_finder_executor()
 		
+main('192.168.0.3:9999')

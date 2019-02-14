@@ -7,9 +7,10 @@ import fetching_from_wayback
 import screenshot_capturer
 import optparse
 import time
+import json
 import find_default_files
 from List_of_index import *
-
+import dnshistory
 
 def run(arg1, arg2, arg3, urls_interesting_files_open):
 
@@ -36,5 +37,22 @@ def run(arg1, arg2, arg3, urls_interesting_files_open):
 	print "\n [+]List of some interesting URL's (if so) \n"
 	for x in urls_interesting_files_open:
 		print "   ", x.strip('\n')
+	
+	print '\n [+] Trying to find the DNS history whose server is Cloudflare \n'
+	dnshistory.main()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
