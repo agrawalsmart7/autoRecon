@@ -4,6 +4,9 @@ import json
 import os
 from HTMLParser import HTMLParser
 
+
+ 
+
 def htmlfile(output, hostname):
 	h = HTMLParser()
 	os.chdir('results')
@@ -11,6 +14,7 @@ def htmlfile(output, hostname):
 	csp_urls = '<br>'.join(str(x) for x in jsonpurls)
 	xss_urls = '<br>'.join(str(x) for x in vulnerable)
 	json1 = json.dumps(json_dict, indent=2, sort_keys=True)
+	
 	bucket_urls = '<br>'.join(str(x) for x in buckets)
 
 

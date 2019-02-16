@@ -5,15 +5,17 @@ import ports_to_scans
 from collections import OrderedDict
 import json_output
 import json
+import re
 dict_urls = {}
+banner = {}
 
+
+
+def dicta(newip, banner):
 
 	
-
-def dicta(newip, port):
-
 	dict_urls.setdefault(newip, [])
-	dict_urls[newip].append(port)
+	dict_urls[newip].append(banner)
 	
 def sockscan(ip, schemess, port, slash):
 	
@@ -24,27 +26,67 @@ def sockscan(ip, schemess, port, slash):
 		
 		result = sock.connect_ex((ip, port))
 		newip = schemess+ip+slash
-		
-		if port == 21:
-			if result == 0:
-				
-				print "\t [+]" + str(port)
-
-				ftpurls.append(newip)
-				
-				
-				dicta(newip, port)
-			
-		else:
-			if result == 0:
-				
-				print "\t [+]" + str(port)
-				dicta(newip, port)
-			
-			
-		sock.close()
 	except Exception as e:
-		print e
+		print e, port	
+		
+		
+		
+	if port == 21:
+		if result == 0:
+			
+			print "\t [+]" + str(port)
+			ftpurls.append(newip)
+			try:
+			
+				banner1 = str(sock.recv(4096))
+				banner.setdefault(port, [])
+				banner[port].append(banner1)
+				
+			except Exception as e:
+				pass
+			
+		
+	
+	elif port == 3306:
+	
+		
+		if result == 0:
+			
+			print "\t [+]" + str(port)
+			
+			try:
+				string = re.findall(r'\d+\.+\d+\.+\d+', str(sock.recv(4096)))
+				if not string:
+					pass
+				else:
+					for x in string
+				
+						banner.setdefault(port, [])
+						banner[port].append(x)
+				
+			except Exception as e:
+				pass
+				
+			
+	else:
+		if result == 0:
+			print "\t [+]" + str(port)
+			try:
+			
+				
+				banner3 = str(sock.recv(4096))
+				 
+				banner.setdefault(port, [])
+				banner[port].append(banner3)
+				
+				
+					
+				
+			except Exception as e:
+				pass
+		
+	sock.close()
+	
 
 def socketscan(y):
 	
@@ -63,13 +105,13 @@ def callforscanning(x):
 
 def executing_portscan():		
 	
-	print "\n[!] Starting Port Scanner.............\n"
+	print "\n[!] Starting Port Scanner(with Service Banner).............\n"
 	
 	
 	for key, value in json_dict.items():
-		print "\n Host:- "+ key +"("+str(value[0]['statuscode'])+")"
+		print "\t Host: ", key , '(',value[0]['statuscode'],')' 
 		callforscanning(key)
-
-	json_output.json_output('openports', dict_urls)
+		dicta(key, banner)
 	
+	json_output.json_output('openports', dict_urls)
 	
