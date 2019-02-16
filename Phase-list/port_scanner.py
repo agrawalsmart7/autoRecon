@@ -59,7 +59,7 @@ def sockscan(ip, schemess, port, slash):
 				if not string:
 					pass
 				else:
-					for x in string
+					for x in string:
 				
 						banner.setdefault(port, [])
 						banner[port].append(x)
