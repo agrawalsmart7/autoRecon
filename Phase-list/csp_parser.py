@@ -92,7 +92,7 @@ def check_cspheader(domain):
 	
 	if 'Content-Security-Policy' in req.headers:
 	
-	
+		print "\n" + crayons.green('[+]') +" Found:- Parsing it \n"
 		header_value = req.headers.get('Content-Security-Policy')
 		
 		
@@ -134,7 +134,7 @@ def check_cspheader(domain):
 		
 		
 		
-		print "\n Target's CSP includes domains Self. So trying to find the JSONp endpoint on those domains. "
+		
 		
 		
 			
