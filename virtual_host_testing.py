@@ -3,16 +3,14 @@ import bs4
 from bs4 import BeautifulSoup, SoupStrainer
 import socket
 import re
-from List_of_index import *
+from List_of_index import list_of_virtual_host
 
 def main(hostname):
 
-	req = requests.get('http://google.com')
-
-	UA= req.headers.get('User-Agent')
+	
 
 	
-	header = {"User-Agent" : UA}
+	header = {"User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0"}
 	try:
 	
 		ip = socket.gethostbyname(hostname)

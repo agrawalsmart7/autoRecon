@@ -6,7 +6,7 @@ get_cwd = os.getcwd()
 sys.path.insert(0, get_cwd+'/Phase-list/')
 
 import runner
-from List_of_index import *
+from List_of_index import newurllist, urls_interesting_files_open
 import htmlreport
 import main_domain_testing
 import json

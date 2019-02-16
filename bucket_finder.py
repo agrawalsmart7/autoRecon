@@ -3,9 +3,9 @@ import json_output
 from bs4 import BeautifulSoup, SoupStrainer
 import time
 import threading
-from List_of_index import *
+from List_of_index import buckets
 import crayons
-
+import colorama
 colorama.init()
 
 
@@ -14,7 +14,7 @@ github = []
 
 
 def bing_search(domain):
-	url = "https://www.bing.com/search?q=amazonaws.com+uber.com&qs=n&form=&sp=-1&pq=amazonaws.com+%s&sc=0-22&sk=&cvid=" %domain
+	url = "https://www.bing.com/search?q=amazonaws.com+%s&qs=n&form=&sp=-1&pq=amazonaws.com+%s&sc=0-22&sk=&cvid=" %(domain, domain)
 	req = requests.get(url)
 	soup = BeautifulSoup(req.content, 'lxml')
 	for x in soup.findAll('cite'):

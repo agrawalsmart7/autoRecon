@@ -1,7 +1,7 @@
 import dns.resolver
 import dns.query
 import dns.zone
-from List_of_index import *
+from List_of_index import dns_zone_vul_domains
 
 
 ns = []

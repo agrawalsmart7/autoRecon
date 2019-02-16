@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup, SoupStrainer
 import re
-from List_of_index import *
+from List_of_index import json_dict
 import json_output
 
 history_ips = {}
-ips = []
+
 
 def histroy(domain):
 	

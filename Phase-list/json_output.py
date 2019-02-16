@@ -1,4 +1,4 @@
-from List_of_index import *
+from List_of_index import json_dict
 
 def json_output(header, subdict):
 	

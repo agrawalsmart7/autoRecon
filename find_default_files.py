@@ -1,5 +1,5 @@
 import requests
-from List_of_index import *
+from List_of_index import urls_returning200, urls_returning403, urls_returning404
 import threading
 import time
 import json_output

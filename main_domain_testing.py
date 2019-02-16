@@ -1,4 +1,4 @@
-from List_of_index import *
+from List_of_index import dns_zone_vul_domains, list_of_virtual_host
 import dns_zone_testing
 import find_default_files
 import virtual_host_testing

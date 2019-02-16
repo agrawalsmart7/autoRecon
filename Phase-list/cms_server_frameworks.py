@@ -1,4 +1,4 @@
-from List_of_index import *
+from List_of_index import wadresults2, wadresults
 import re
 from bs4 import BeautifulSoup, SoupStrainer
 import requests

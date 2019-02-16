@@ -8,6 +8,7 @@ import concurrent.futures
 from concurrent.futures import ThreadPoolExecutor
 import crayons
 import colorama
+from List_of_index import vulnerable 
 
 colorama.init()
 
@@ -15,7 +16,7 @@ urls = []
 url_list = []
 query_urls = []
 urls_for_xss = []
-vulnerable = []
+
 strips = []
 
 def crawler(domain, bs):

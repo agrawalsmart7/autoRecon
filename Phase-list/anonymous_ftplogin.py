@@ -1,6 +1,6 @@
 import ftplib
 from ftplib import FTP
-from List_of_index import *
+from List_of_index import ftpurls, ftpanonymous
 import json_output
 
 

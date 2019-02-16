@@ -15,7 +15,7 @@ responsecode.append(404)
 urls_returning200 = []
 urls_returning400 = []
 urls_returning401 = []
-urls_returning403 = []
+urls_returning403 = ['http://static.reverb.com']
 urls_returning404 = []
 
 

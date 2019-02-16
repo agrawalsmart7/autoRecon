@@ -1,4 +1,4 @@
-from List_of_index import *
+from List_of_index import webarchive_urls401, webarchive_urls403, urls_returning401, urls_returning403, yearlist
 import requests
 import json
 import threading
@@ -6,6 +6,7 @@ import os
 import time
 import json_output
 
+threadsforwayback = []
 localdict = {}
 
 def printing_of_webarchieve():
@@ -79,4 +80,4 @@ def main():
 	executing_wayback()
 	
 
-	json_output.json_output('waybackurls', localdict)
+	

@@ -1,4 +1,4 @@
-from List_of_index import *
+from List_of_index import webarchive_urls401, webarchive_urls403, waybackurls403, waybackurls401
 import os
 import selenium
 from selenium import webdriver
@@ -6,7 +6,6 @@ from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import TimeoutException
 import sys
 from sys import platform
-import json_output
 
 def windows_func():
 	try:
@@ -56,8 +55,6 @@ def linux_func2():
 
 		
 def drivers_func(x, waybackurls, driver):
-	
-	
 	
 	print "\t[+]" + x
 	try:

@@ -1,7 +1,7 @@
 import dns.resolver
 from dns.resolver import NXDOMAIN
 from collections import OrderedDict
-from List_of_index import *
+from List_of_index import dictcname
 import json_output
 
 def printingofcnames():

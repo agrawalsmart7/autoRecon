@@ -6,7 +6,7 @@ import colorama
 import threading
 import crayons
 import time
-from List_of_index import *
+from List_of_index import jsonpurls
 
 
 colorama.init()

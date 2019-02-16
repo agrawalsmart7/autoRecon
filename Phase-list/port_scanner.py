@@ -1,6 +1,6 @@
 import socket	
 import threading
-from List_of_index import *
+from List_of_index import ftpurls, json_dict
 import ports_to_scans
 from collections import OrderedDict
 import json_output
