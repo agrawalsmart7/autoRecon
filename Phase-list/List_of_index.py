@@ -1,5 +1,5 @@
 from collections import OrderedDict
-
+buckets = []
 ftpurls = []
 ports = []
 httpurls = []

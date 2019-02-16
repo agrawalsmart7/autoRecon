@@ -6,6 +6,7 @@ import csp_parser
 import crayons
 import colorama
 import crawler
+import bucket_finder
 
 colorama.init()
 
@@ -34,4 +35,8 @@ def run(hostname):
 	
 	print '\n', crayons.red('[!]'),  crayons.green('Spidering Target to see if any parameter is Vulnerable to XSS. (will print if any)'), '\n'
 	crawler.main(hostname)
+	
+	print "\n[!] Checking for any s3 buckets \n"
+	bucket_finder.main(hostname)
+	
 	
