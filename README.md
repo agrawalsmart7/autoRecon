@@ -33,7 +33,7 @@ autoRecon is a automation tool which works on Phases which automates the manual 
 
 **Phase 8**:- It will try to find default files for ex. phpinfo.php, htaccess.txt on each and every sub-domain. 
 
-**Phase 9**:- At last if any subdomain is using Cloudfare then it will go for the **DNS history**. 
+**Phase 9**:- At last if any subdomain is using Cloudflare service then it will go for the **DNS history** for that subdomain. 
 
 **Now lastly it will give you the results in HTML file.**
 
