@@ -13,8 +13,9 @@ autoRecon is a automation tool which works on Phases which automates the manual 
 <br>`For ex. CSP:- default-src *.test.com www.test1.com test2.com`
 <br>then it will parse it and store these domains like `test.com, www.test1.com, test2.com` then it will try to find the JSONp endpoints on those domains through the use of `google.com, ask.com`. (Intentionally for bypassing CSP).
 <br>**4** Then it will try to crawl the target and try to find out the vulnerble URL for xss. (If any). Remember it will take one round for crawl. 
-
-**--Now on Subdomains.**
+<br>**5**. Try to find S3 buckets. 
+<br>
+**--On the Sub-domains.**
 
 **Phase 1**: It will find the sub-domains through the use of the sublist3r.
 
@@ -31,7 +32,10 @@ autoRecon is a automation tool which works on Phases which automates the manual 
 **Phase 7**: Now in the last phase it will find the URLs in the WayBack machine but whose domain status code is 401, 403. And will Capture screen-shots of way-back URLs.
 
 **Phase 8**:- It will try to find default files for ex. phpinfo.php, htaccess.txt on each and every sub-domain. 
-<br>**Phase 9**:- Now lastly it will give you the results in HTML file.
+
+**Phase 9**:- At last if any subdomain is using Cloudfare then it will go for the **DNS history**. 
+
+**Now lastly it will give you the results in HTML file.**
 
 
 # Usage: 
