@@ -1,11 +1,9 @@
 import socket	
-import threading
 from List_of_index import ftpurls, json_dict
 import ports_to_scans
-from collections import OrderedDict
 import json_output
-import json
 import re
+import time
 dict_urls = {}
 banner = {}
 
@@ -43,7 +41,7 @@ def sockscan(ip, schemess, port, slash):
 				banner[port].append(banner1)
 				
 			except Exception as e:
-				pass
+				dicta(newip, port)
 			
 		
 	
@@ -59,13 +57,13 @@ def sockscan(ip, schemess, port, slash):
 				if not string:
 					pass
 				else:
-					for x in string
+					for x in string:
 				
 						banner.setdefault(port, [])
 						banner[port].append(x)
 				
 			except Exception as e:
-				pass
+				dicta(newip, port)
 				
 			
 	else:
@@ -83,7 +81,8 @@ def sockscan(ip, schemess, port, slash):
 					
 				
 			except Exception as e:
-				pass
+				dicta(newip, port)
+				
 		
 	sock.close()
 	
@@ -109,9 +108,16 @@ def executing_portscan():
 	
 	
 	for key, value in json_dict.items():
-		print "\t Host: ", key , '(',value[0]['statuscode'],')' 
+		print "\n ----------------------", "\n"
+		print "\t Host: ", key , '(',value[0]['statuscode'],') \n' 
 		callforscanning(key)
-		dicta(key, banner)
+		if not banner:
+			pass
+		else:
+		
+			dicta(key, banner)
+		
+	time.sleep(2)	
 	
 	json_output.json_output('openports', dict_urls)
 	
