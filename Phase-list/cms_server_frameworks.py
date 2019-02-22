@@ -5,18 +5,6 @@ import requests
 
 ips = []
 
-def histroy(domain):
-
-	req = requests.get('https://securitytrails.com/domain/%s/history/a')%domain
-	
-	for x in re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', req.content):
-		ips.append(x)
-		
-	print "\n[+]DNS history FOUND for Domain:- %s:- \n" %domain
-	for x in set(ips):
-		
-		print x
-
 def printing_of_httpurlstates():
 	print "\n.........................................................................."
 	

@@ -8,7 +8,7 @@ import concurrent.futures
 from concurrent.futures import ThreadPoolExecutor
 import crayons
 import colorama
-from List_of_index import vulnerable 
+from List_of_index import vulnerable, buckets
 
 colorama.init()
 
@@ -16,8 +16,24 @@ urls = []
 url_list = []
 query_urls = []
 urls_for_xss = []
-
+local_append = []
 strips = []
+
+def bucket_grapper(content):
+	list_for_matches = ['\w+.s3.amazonaws.com', '\w+.s3-\w+-\w+-\d.amazonaws.com' ,'s3.amazonaws.com/\w+/', 's3-\w+-\w+-\d.amazonaws.com/\w+/']
+
+	for x in list_for_matches:
+
+
+		find = re.findall(x, content)
+		local_append.append(find)
+		
+	for list in local_append:
+		for buck in list:
+			buckets.append(buck)
+
+
+
 
 def crawler(domain, bs):
 
@@ -108,7 +124,8 @@ def main(domain):
 	
 	url = 'http://'+domain
 	req = requests.get(url)
-
+	
+	bucket_grapper(req.content) #bucket grep from source code
 
 	bs = BeautifulSoup(req.content, "html.parser", parse_only=SoupStrainer('a'))
 	crawler(domain, bs)		
