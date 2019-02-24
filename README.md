@@ -23,7 +23,7 @@ autoRecon is a automation tool which works on Phases which automates the manual 
 
 **Phase 3**: In this phase the tool will try to find the CNAME's entries of 404's sub-domains. NOTE: For this Phase, the main objective is to check for the SUBDOMAIN TAKE-OVER Vuln.
 
-**Phase 4**: In this phase, through the use of Multi-threading, this tool will find the Port status running on each Sub-domains. Note: The defined ports are "21, 22, 80, 8080, 443, 8443, 3306, 445". And it will make the two seperate list of URL's which have 21 port open and 80 port open.
+**Phase 4**: In this phase, through the use of Multi-threading, this tool will find the Port status (with **Banner Grabbing**) running on each Sub-domains. Note: The defined ports are "21, 22, 80, 8080, 443, 8443, 3306, 445". And it will make the two seperate list of URL's which have 21 port open and 80 port open.
 
 **Phase 5**: In this phase the tool will find the *What CMS, Server, Frameworks and versions (if leaks) are using in the domain and Sub-domains.
 
