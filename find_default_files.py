@@ -22,15 +22,25 @@ def searching_for_url(x, filename, urls_interesting_files):
 	except Exception as e:
 		print e, ' on this domain ', x
 
-def exect(url, urls_interesting_files):
+def exect(url, urls_interesting_files, statuscode):
 	local_threads = []
-	with open('check_default_files.txt') as file:
-		
-		for filename in file:
+	
+	
+	if statuscode == 200:
+		localfile = ['robots.txt', 'sitemap.xml', '.git ']
+		for file in localfile:
+			th = threading.Thread(target=searching_for_url, args=(url, file, urls_interesting_files))
+			th.daemon = True
+			local_threads.append(th)
+	else:
+	
+		with open('check_default_files.txt') as file:
 			
-			th1 = threading.Thread(target=searching_for_url, args=(url, filename, urls_interesting_files))
-			th1.daemon = True
-			local_threads.append(th1)
+			for filename in file:
+				
+				th1 = threading.Thread(target=searching_for_url, args=(url, filename, urls_interesting_files))
+				th1.daemon = True
+				local_threads.append(th1)
 			
 			
 			'''searching_for_url(url, filename, urls_interesting_files)'''
@@ -41,15 +51,15 @@ def exect(url, urls_interesting_files):
 def thread_for_200(urls_interesting_files):
 	for x in urls_returning200:
 		
-		exect(x, urls_interesting_files)
+		exect(x, urls_interesting_files, 200)
 	
 def thread_for_403(urls_interesting_files):
 	for x in urls_returning403:
-		exect(x, urls_interesting_files)
+		exect(x, urls_interesting_files, 403)
 		
 def thread_for_404(urls_interesting_files):
 	for x in urls_returning404:
-		exect(x, urls_interesting_files)		
+		exect(x, urls_interesting_files, 404)		
 
 	
 def main(urls_interesting_files):
@@ -64,16 +74,11 @@ def main(urls_interesting_files):
 	t3.daemon = True
 	
 	t1.start()
-	time.sleep(0.2)
 	t2.start()
-	time.sleep(0.2)
 	t3.start()
-	time.sleep(0.2)
 	t3.join()
 	
 
-
-	
 	for x in thread_for_files:
 		x.start()
 		time.sleep(0.2)

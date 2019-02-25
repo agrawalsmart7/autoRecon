@@ -65,7 +65,10 @@ def sockscan(ip, schemess, port, slash):
 			except Exception as e:
 				dicta(newip, port)
 				
-			
+	
+	
+	
+	
 	else:
 		if result == 0:
 			print "\t [+]" + str(port)

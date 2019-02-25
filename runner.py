@@ -6,6 +6,7 @@ import fetching_from_wayback
 import screenshot_capturer
 import find_default_files
 import dnshistory
+import parse8080
 
 def run(arg1, arg2, arg3, urls_interesting_files_open):
 
@@ -15,14 +16,12 @@ def run(arg1, arg2, arg3, urls_interesting_files_open):
 	port_scanner.printingofportscans()
 	port_scanner.executing_portscan()
 	
-	
-
 	cms_server_frameworks.main()
 	anonymous_ftplogin.main()
 	fetching_from_wayback.main()
 	screenshot_capturer.main()
 	print "\n\n---------------------------------------------------"
-	print    '|[+][DONE]. Tryint to get some additional info:- |'
+	print    '|[+][DONE]. Trying to get some additional info:- |'
 	print     "---------------------------------------------------\n"
 	newurl = 'http://'+arg2
 	
@@ -36,8 +35,8 @@ def run(arg1, arg2, arg3, urls_interesting_files_open):
 	print '\n [+] Trying to find the DNS history whose server is Cloudflare \n'
 	dnshistory.main()
 	
-	
-	
+	print "\n[!] Parsing 8080 port for Info \n"
+	parse8080.parse8080()
 	
 	
 	

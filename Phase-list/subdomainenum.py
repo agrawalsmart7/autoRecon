@@ -128,6 +128,8 @@ def executing_subdomains(newurllist, hostname, filename):
 		
 		newurllist.append(newurl)
 	
+	
+	
 	with ThreadPoolExecutor(max_workers=20) as pool:
 		
 		list(pool.map(urlrequests,newurllist))
