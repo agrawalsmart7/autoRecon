@@ -74,8 +74,3 @@ This phase uses Selenium, geckodriver for screenshots. Note:- You may see unusal
 
 I am extremely waiting for your feedback about this tool. 
 
-# Contact
-
-
-[agrawalsmart7](http://twitter.com/agrawalsmart7)
-
